@@ -2,64 +2,114 @@
 // 課題の回答は このファイル をご利用下さい。
 // 回答の出力を確認される際は，「php task.php」をターミナルから実行して下さい。
 
+//////////////////////////////////////////////////////Q1
 print("#####q1#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
 // 以下に回答を記載
+    $names[] = "斉藤";
+        print_r($names);
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q2
 
 print("#####q2#####".PHP_EOL);
 $array1 = ["dog", "cat", "fish"];
 $array2 = ["bird", "bat", "tiger"];
 
 // 以下に回答を記載
+    $array = array_merge($array1, $array2);
+        print_r($array);
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q3
 
 print("#####q3#####".PHP_EOL);
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 1, 4, 5, 9];
 
 // 以下に回答を記載
+    $counts = array_count_values($numbers);
+        echo '3は'.$counts['3'].'回重複しています';
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q4
 
 print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
 // 以下に回答を記載
+    $diff = array_diff($sports,array(null));
+        $aligned = array_values($diff);
+            print_r($aligned) ; 
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q5
 
 print("#####q5#####".PHP_EOL);
 $array1 = [];
 $array2 = [1, 5, 8, 10];
 
 // 以下に回答を記載
+    if(empty($array1)){
+        echo 'true';
+    } else {
+        echo 'false';
+    }   
+echo'<br>';
+    if(empty($array2)){
+        echo 'true';
+    } else {
+        echo 'false';
+    }
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q6
 
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
 // 以下に回答を記載
+    $numbers2 = array_map('cal',$numbers1);
+        print_r($numbers2);
+    function cal($value) {
+        return $value * 10;
+    }
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q7
 
 print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
 
 // 以下に回答を記載
 
+    $array = array_map('intval',$array);
+
+    
 // 以下は変更しないで下さい
 var_dump($array);
 
 echo PHP_EOL;
 
+//////////////////////////////////////////////////////Q8
+
 print("#####q8#####".PHP_EOL);
 $programming_languages = ["php", "ruby", "python", "javascript"];
 
 // 以下に回答を記載
+
+    //頭文字のみ大文字
+    $programming_languages = array_map('ucfirst',$programming_languages);
+
+    //全て大文字
+    $upper_case_programming_languages = array_map('strtoupper',$programming_languages);
+
 
 // 以下は変更しないで下さい
 print_r($programming_languages);
@@ -67,7 +117,7 @@ echo PHP_EOL;
 print_r($upper_case_programming_languages);
 
 echo PHP_EOL;
-
+//////////////////////////////////////////////////////Q9
 print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
