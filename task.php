@@ -41,9 +41,8 @@ print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
 // 以下に回答を記載
-    $diff = array_diff($sports,array(null));
-        $aligned = array_values($diff);
-            print_r($aligned) ; 
+    $sports = array_diff($sports,[null]);
+            print_r($sports) ; 
 
 echo PHP_EOL;
 
@@ -59,7 +58,7 @@ $array2 = [1, 5, 8, 10];
     } else {
         echo 'false';
     }   
-echo'<br>';
+ echo PHP_EOL;
     if(empty($array2)){
         echo 'true';
     } else {
@@ -91,7 +90,7 @@ $array = ["1", "2", "3", "4", "5"];
 
     $array = array_map('intval',$array);
 
-    
+
 // 以下は変更しないで下さい
 var_dump($array);
 
@@ -117,34 +116,80 @@ echo PHP_EOL;
 print_r($upper_case_programming_languages);
 
 echo PHP_EOL;
+
 //////////////////////////////////////////////////////Q9
+
 print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
 // 以下に回答を記載
+    foreach ($names as $key => $value){
+        $number = $key + 1;
+        $members[] = '会員No.' . $number ." ". $value ;
+    }
+
+    print_r($members);
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q10
 
 print("#####q10#####".PHP_EOL);
 $foods = ["いか", "たこ", "うに", "しゃけ", "うにぎり", "うに軍艦", "うに丼", "高級なうに"];
 
 // 以下に回答を記載
+    foreach($foods as $food){
+        if(strpos($food,'うに') === false){
+            echo 'まぁまぁ好きです'.PHP_EOL;
+        } else {
+            echo '好物です'.PHP_EOL;
+        }
+    }
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q11
 
 print("#####q11#####".PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
 
 // 以下に回答を記載
+    $sports2 = [];
+    foreach($sports as $key => $sport) {
+        if(is_array($sport)) {
+                $sports2 = array_merge($sports2,$sport);
+        }else {
+                $sports2[] = $sport;
+        }
+    }
+
+    $sports2 = array_unique($sports2);
+    $sports2 = array_values($sports2);
+
+    $sports3 = [];
+    foreach ($sports2 as $key => $sport) {
+            $number = $key + 1;
+            $sports3[] = "No".$number ." " . $sport;
+    }
+    print_r("ユーザーの趣味一覧".PHP_EOL);
+    foreach ($sports3 as $sport) {
+            print($sport.PHP_EOL);
+
+}
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q12
 
 print("#####q12#####".PHP_EOL);
 $data = ["user" => ["name" => "satou", "age" => 33]];
 
 // 以下に回答を記載
+    print_r($data["user"]["name"]);
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q13
 
 print("#####q13#####".PHP_EOL);
 $user_data = ["name" => "神里", "age" => 31, "address" => "埼玉"];
@@ -152,22 +197,46 @@ $update_data = ["age" => 32, "address" => "沖縄"];
 
 // 以下に回答を記載
 
+    $user_data = array_replace($user_data,$update_data);
+    print_r($user_data);
+
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q14
 
 print("#####q14#####".PHP_EOL);
 $data = ["name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com"];
 
 // 以下に回答を記載
 
+    $data2 = array_values($data);
+    $keys = ["0","1","2","3","4"];
+    $data2 = array_combine($keys,$data2);
+    print_r($data2);
+
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q15
 
 print("#####q15#####".PHP_EOL);
 $data1 = ["name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin"];
 $data2 = ["name" => "yamada", "hobby" => "baseball", "role" => "normal"];
 
 // 以下に回答を記載
+    if(array_key_exists('age',$data1)){
+        echo "OK". PHP_EOL ;
+    } else{
+        echo "NO". PHP_EOL ;
+    }   
+    if(array_key_exists('age',$data2)){
+        echo "OK". PHP_EOL ;
+    } else{
+        echo "NG". PHP_EOL ;
+    }
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q16
 
 print("#####q16#####".PHP_EOL);
 $users = [
@@ -179,7 +248,14 @@ $users = [
 
 // 以下に回答を記載
 
+    foreach($users as $value) {
+        print "私の名前は".$value['name'] ."です。"."年齢は".$value['age']."歳です。".PHP_EOL ;
+    }
+
 echo PHP_EOL;
+
+///////////以下  PHP課題（応用）
+
 
 print("#####q17#####".PHP_EOL);
 class User
