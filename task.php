@@ -256,13 +256,27 @@ echo PHP_EOL;
 
 ///////////以下  PHP課題（応用）
 
+//////////////////////////////////////////////////////Q17
 
 print("#####q17#####".PHP_EOL);
 class User
 {
-
     // コードを追加
+    private $name ;
+    private $age ;
+    private $gender ;
 
+    public function __construct($user_name,$user_age,$user_gender) {
+        $this->name = $user_name;
+        $this->age = $user_age;
+        $this->gender = $user_gender;
+    }
+
+    function info(){
+        print('名前:'.$this->name.PHP_EOL);
+        print('年齢:'.$this->age.PHP_EOL);
+        print('性別:'.$this->gender.PHP_EOL);
+    }
 }
 
 $user1 = new User("神里", 32, "男");
@@ -274,12 +288,32 @@ $user2->info();
 
 echo PHP_EOL;
 
+//////////////////////////////////////////////////////Q18
+
 print("#####q18#####".PHP_EOL);
 
 // コードを追加
 
 $man1 = new Man("あじー", 32);
 $man2 = new Man("ゆたぼん", 10);
+
+class Man {
+    private $name ;
+    private $age ;
+
+    public function __construct($user_name,$user_age) {
+        $this->name = $user_name ;
+        $this->age = $user_age ;
+    }
+
+    function introduce() {
+        if(30>$this->age){
+            echo 'はいさいまいど〜、' .$this->name . 'です！！！'.PHP_EOL;
+        } else{
+            echo 'こんにちは、' .$this->name . 'と申します。宜しくお願いいたします。'.PHP_EOL;
+        }
+    }
+}
 
 $man1->introduce();
 $man2->introduce();
@@ -293,8 +327,14 @@ class Item
 
     protected $name;
 
-    function __construct($book_name){
+    public function __construct($book_name){
         $this->name = $book_name;
+    }
+    public function __get($name){
+        return $this->name ;
+    }
+    public function __isset($name){
+        return isset($this->$name);
     }
 }
 // 以下は変更しないで下さい
