@@ -323,6 +323,8 @@ $man2->introduce();
 
 echo PHP_EOL;
 
+//////////////////////////////////////////////////////Q19
+
 print("#####q19#####".PHP_EOL);
 class Item
 {
@@ -346,6 +348,8 @@ $book = new Item("ゼロ秒思考");
 print($book->name.PHP_EOL);
 
 echo PHP_EOL;
+
+//////////////////////////////////////////////////////Q20
 
 print("#####q20#####".PHP_EOL);
 class Human
@@ -400,7 +404,9 @@ foreach ($humans as $human) {
 
 echo PHP_EOL;
 
-print("#####q20#####".PHP_EOL);
+//////////////////////////////////////////////////////Q21
+
+print("#####q21#####".PHP_EOL);
 
 for ($i=1 ;$i < 31 ; $i++) {
     if($i % 3 ==0  && $i % 5 == 0){
@@ -416,8 +422,7 @@ for ($i=1 ;$i < 31 ; $i++) {
     }else{
         echo $i.PHP_EOL ;
     }
-
 }
 
-
+//php応用終了
 ?>
