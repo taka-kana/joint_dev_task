@@ -294,8 +294,7 @@ print("#####q18#####".PHP_EOL);
 
 // コードを追加
 
-$man1 = new Man("あじー", 32);
-$man2 = new Man("ゆたぼん", 10);
+
 
 class Man {
     private $name ;
@@ -314,6 +313,10 @@ class Man {
         }
     }
 }
+
+$man1 = new Man("あじー", 32);
+$man2 = new Man("ゆたぼん", 10);
+//修正箇所  classの後にnew演算子を使ってインスタンスを作る
 
 $man1->introduce();
 $man2->introduce();
@@ -347,16 +350,39 @@ echo PHP_EOL;
 print("#####q20#####".PHP_EOL);
 class Human
 {
-
     // コードを追加
+    public $name ;
+    public $age ;
 
+    function __construct($user_name,$user_age) {
+        $this->name = $user_name ;
+        $this->age = $user_age ;
+    }
 }
+
 
 class Zoo
 {
-
     // コードを追加
+    private $name ;
+    private $entry_fee ;
 
+    function __construct($zoo_name,$zoo_entry_fee) {
+        $this->name = $zoo_name ;
+        $this->entry_fee = $zoo_entry_fee ;
+    }
+
+    function info_entry_fee(Human $human){
+        if($human->age <= 5){
+            print ($human -> name . "さんの入場料金は ".$this->entry_fee["infant"]."円です".PHP_EOL);
+        }elseif($human->age <= 15){
+            print ($human -> name . "さんの入場料金は".$this->entry_fee["children"]."円です".PHP_EOL);
+        }elseif($human->age <= 65){
+            print ($human -> name . "さんの入場料金は".$this->entry_fee["adult"]."円です".PHP_EOL);
+        }elseif($human->age <=120){
+            print ($human -> name . "さんの入場料金は".$this->entry_fee["senior"]."円です".PHP_EOL);
+        }
+    }
 }
 
 $zoo = new Zoo("旭山動物園",["infant" => 0, "children" => 400, "adult" => 800, "senior" => 500]);
@@ -373,3 +399,25 @@ foreach ($humans as $human) {
 }
 
 echo PHP_EOL;
+
+print("#####q20#####".PHP_EOL);
+
+for ($i=1 ;$i < 31 ; $i++) {
+    if($i % 3 ==0  && $i % 5 == 0){
+        echo "FizzBuzz".PHP_EOL ;
+    }elseif($i % 3 == 0 && $i % 7 == 0){
+        echo "FizzHoge".PHP_EOL ;
+    }elseif($i % 3 == 0){
+        echo "Fizz".PHP_EOL ;
+    }elseif($i % 5 == 0){
+        echo "Buzz".PHP_EOL ;
+    }elseif($i % 7 == 0){
+        echo "Hoge".PHP_EOL ;
+    }else{
+        echo $i.PHP_EOL ;
+    }
+
+}
+
+
+?>
