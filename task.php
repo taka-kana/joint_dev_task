@@ -330,17 +330,19 @@ class Item
 {
     // 以下を修正して下さい
 
-    protected $name;
+    public $name;
 
-    public function __construct($book_name){
+    function __construct($book_name){
         $this->name = $book_name;
     }
-    public function __get($name){
-        return $this->name ;
-    }
-    public function __isset($name){
-        return isset($this->$name);
-    }
+    //課題のprotected $nameは変えてはいけないものだと思いました。以下コメントアウト部分は備忘録的な意味合いで残しておきます。
+    //protected $nameを表示させたい場合は以下
+    // public function __get($name){
+    //     return $this->name ;
+    // }
+    // public function __isset($name){
+    //     return isset($this->$name);
+    // }
 }
 // 以下は変更しないで下さい
 
