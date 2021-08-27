@@ -417,6 +417,8 @@ for ($i=1 ;$i < 31 ; $i++) {
         echo "FizzBuzz".PHP_EOL ;
     }elseif($i % 3 == 0 && $i % 7 == 0){
         echo "FizzHoge".PHP_EOL ;
+    }elseif($i % 5 == 0 && $i % 7 == 0){
+            echo "BuzzHoge".PHP_EOL ;
     }elseif($i % 3 == 0){
         echo "Fizz".PHP_EOL ;
     }elseif($i % 5 == 0){
